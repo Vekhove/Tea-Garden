@@ -1,0 +1,19 @@
+{
+  "id": ["#forge:items/spider_eye"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "This... tea, *gags*, it hurts.",
+  "names": [
+    {
+      "name": "Disgusting",
+      "position": 1
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:poison"
+    }
+  ]
+}

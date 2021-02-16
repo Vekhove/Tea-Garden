@@ -1,0 +1,16 @@
+{
+  "id": ["minecraft:lily_of_the_valley"],
+  "type": "ingredient",
+  "color": "#CCCCCC",
+  "description": "The valley lilies, they fulfill me. I feel... stronger.",
+  "names": [
+    {
+      "name": "Lily"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:strength"
+    }
+  ]
+}

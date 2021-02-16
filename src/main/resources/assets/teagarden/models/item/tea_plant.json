@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "teagarden:block/tea_plant_stage3"
+  }
+}

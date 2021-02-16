@@ -1,0 +1,21 @@
+{
+  "id": ["#forge:items/nether_star"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Rare"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "duration",
+      "min": 5,
+      "max": 10
+    },
+    {
+      "type": "potency",
+      "min": 1,
+      "max": 2
+    }
+  ]
+}

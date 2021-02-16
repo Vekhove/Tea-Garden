@@ -1,0 +1,24 @@
+{
+  "id": ["minecraft:dragon_egg"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Dragon Egg Tea! It's as if I've turned into a dragon!",
+  "names": [
+    {
+      "name": "Dragon Egg"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:flight"
+    },
+    {
+      "id": "minecraft:strength"
+    },
+    {
+      "id": "minecraft:regeneration"
+    }
+  ]
+}

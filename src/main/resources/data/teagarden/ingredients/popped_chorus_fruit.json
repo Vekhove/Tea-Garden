@@ -1,0 +1,23 @@
+{
+  "id": ["#forge:items/popped_chorus_fruits"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "How disorienting... I'm going all over the place!",
+  "names": [
+    {
+      "name": "Strange",
+      "position": 1
+    },
+    {
+      "name": "Extra",
+      "position": -1
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:random_teleport_dimension"
+    }
+  ]
+}

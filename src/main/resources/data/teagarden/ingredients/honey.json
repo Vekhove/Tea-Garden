@@ -1,0 +1,21 @@
+{
+  "id": ["#minecraft:items/planks"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Thick"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "speed",
+      "value": 2
+    },
+    {
+      "type": "potency",
+      "value": 1,
+      "chance": 50,
+      "chance_change": "chance/2"
+    }
+  ]
+}

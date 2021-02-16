@@ -1,0 +1,19 @@
+{
+  "id": ["#forge:items/golden_carrots"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Carrot? Golden Carrot? It's just more carrots! Double the effect!",
+  "names": [
+    {
+      "name": "Golden Carrot"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:night_vision",
+      "potency": 2
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": ["#forge:items/white_tea_leaves"],
+  "type": "base",
+  "color": "#FFFFFF",
+  "description": "Surprisingly, this tea seems to remove the effects of all other teas.",
+  "names": [
+    {
+      "name": "White"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:remove_all"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "teagarden:block/mint_plant_stage2"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": ["#forge:items/milk"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Milky"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "potency",
+      "value": 1,
+      "chance": 25,
+      "chance_change": "%value% = %value% - %value%/3"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": ["#forge:items/bat_wings"],
+  "type": "ingredient",
+  "color": "#BBBBBB",
+  "description": "Infusing my tea with bat wings allows me to see at night.",
+  "names": [
+    {
+      "name": "Bat Wing"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:night_vision"
+    }
+  ]
+}

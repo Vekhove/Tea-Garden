@@ -1,0 +1,17 @@
+{
+  "id": ["#forge:items/black_tea_leaves"],
+  "type": "base",
+  "brewability": 1,
+  "color": "#923C01",
+  "description": "The caffeine in these slow me down, but they seem better for brewing.",
+  "names": [
+    {
+      "name": "Black"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:slowness"
+    }
+  ]
+}

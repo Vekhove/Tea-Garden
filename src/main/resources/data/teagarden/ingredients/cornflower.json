@@ -1,0 +1,18 @@
+{
+  "id": ["minecraft:cornflower"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Cornflower Tea, huh? I feel... bloated, heavier? As if, nothing could knock me back.",
+  "names": [
+    {
+      "name": "Cornflower"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:knockback_resistance"
+    }
+  ]
+}

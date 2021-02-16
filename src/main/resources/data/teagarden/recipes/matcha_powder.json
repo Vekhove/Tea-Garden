@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "matcha_powder",
+  "ingredients": [
+    {
+      "item": "teagarden:dried_green_tea_leaves"
+    }
+  ],
+  "result": {
+    "item": "teagarden:matcha_powder"
+  }
+}

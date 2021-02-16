@@ -1,0 +1,16 @@
+{
+  "id": ["minecraft:rose_bush"],
+  "type": "ingredient",
+  "color": "#CCCCCC",
+  "description": "Damn, that hits hard. Wow. I feel so good.",
+  "names": [
+    {
+      "name": "Rose"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:instant_health"
+    }
+  ]
+}

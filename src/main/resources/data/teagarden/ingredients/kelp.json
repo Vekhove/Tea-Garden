@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/kelp"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Aha! I feel as if I can breath underwater... now I can get even more kelp!",
+  "names": [
+    {
+      "name": "Kelp"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:water_breathing"
+    }
+  ]
+}

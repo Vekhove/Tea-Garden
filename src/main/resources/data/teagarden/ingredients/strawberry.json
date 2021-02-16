@@ -1,0 +1,16 @@
+{
+  "id": ["#forge:items/strawberry"],
+  "type": "ingredient",
+  "color": "#CCCCCC",
+  "description": "Such an incredible taste, I feel revitalised.",
+  "names": [
+    {
+      "name": "Strawberry"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:health_boost"
+    }
+  ]
+}

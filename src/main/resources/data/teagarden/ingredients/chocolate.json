@@ -1,0 +1,19 @@
+{
+  "id": ["#forge:items/cocoa_beans", "#forge:items/chocolate"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Chocolatey"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "potency",
+      "value": 2
+    },
+    {
+      "type": "duration",
+      "value": -10
+    }
+  ]
+}

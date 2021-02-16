@@ -1,0 +1,6 @@
+{
+  "parent": "teagarden:block/leaf_pile",
+  "textures": {
+    "layer0": "teagarden:block/tea_leaf_pile"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": ["#forge:items/milk"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Iced Tea",
+      "position": 3
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "speed",
+      "value": 4
+    },
+    {
+      "type": "duration",
+      "value": -5
+    }
+  ]
+}

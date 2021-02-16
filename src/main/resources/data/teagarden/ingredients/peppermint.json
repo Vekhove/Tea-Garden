@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/mint"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#C0FFEE",
+  "description": "Oo, minty. My reaction times are increased, amazing! I can mine a lot faster now.",
+  "names": [
+    {
+      "name": "Mint"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:haste"
+    }
+  ]
+}

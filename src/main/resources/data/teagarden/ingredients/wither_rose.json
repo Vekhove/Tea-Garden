@@ -1,0 +1,18 @@
+{
+  "id": ["minecraft:wither_rose"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Why did I brew something made by a Wither...?",
+  "names": [
+    {
+      "name": "Wither Rose"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:withering"
+    }
+  ]
+}

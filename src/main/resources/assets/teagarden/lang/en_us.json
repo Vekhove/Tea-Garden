@@ -1,0 +1,33 @@
+{
+  "itemGroup.teagarden": "Tea Garden",
+
+  "item.teagarden.tea_leaf": "Tea Leaf",
+  "item.teagarden.dried_black_tea_leaves": "Dried Black Tea Leaves",
+  "item.teagarden.dried_green_tea_leaves": "Dried Green Tea Leaves",
+  "item.teagarden.dried_white_tea_leaves": "Dried White Tea Leaves",
+  "item.teagarden.dried_oolong_tea_leaves": "Dried Oolong Tea Leaves",
+  "item.teagarden.matcha_powder": "Matcha Powder",
+  "item.teagarden.cinnamon": "Cinnamon",
+  "item.teagarden.pepper_seeds": "Pepper Seeds",
+  "item.teagarden.ginger": "Ginger",
+  "item.teagarden.strawberry": "Strawberry",
+  "item.teagarden.cinnamon_cookie": "Cinnamon Cookie",
+  "item.teagarden.ginger_cookie": "Ginger Cookie",
+  "item.teagarden.peppered_steak": "Peppered Steak",
+  "item.teagarden.tapioca": "Tapioca",
+  "item.teagarden.mint_leaf": "Mint Leaf",
+  "item.teagarden.bat_wing": "Bat Wing",
+  "item.teagarden.the_book_of_tea": "The Book of Tea",
+  "item.teagarden.tea_cup": "Tea Cup",
+
+  "block.teagarden.tea_plant": "Tea Plant",
+  "block.teagarden.tea_leaf_pile": "Tea Leaf Pile",
+  "block.teagarden.tea_pot": "Tea Pot",
+  "block.teagarden.saucer": "Saucer",
+  "block.teagarden.ginger_root": "Ginger Root",
+  "block.teagarden.cassava_root": "Cassava Root",
+
+  "screen.teagarden.tea_pot": "Tea Pot",
+
+  "dataPack.reload.fail": "Tea Garden encountered an error while reloading."
+}

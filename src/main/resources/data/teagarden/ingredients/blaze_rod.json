@@ -1,0 +1,17 @@
+{
+  "id": ["#forge:items/blaze_rods"],
+  "type": "ingredient",
+  "color": "#BBBBBB",
+  "description": "Incredible! These blaze rods have a chance of allowing me to walk on lava!",
+  "names": [
+    {
+      "name": "Blaze Rod"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:hot_footed",
+      "chance": 25
+    }
+  ]
+}

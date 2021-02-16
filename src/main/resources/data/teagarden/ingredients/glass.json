@@ -1,0 +1,9 @@
+{
+  "id": ["#forge:blocks/glass"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Sharp"
+    }
+  ]
+}

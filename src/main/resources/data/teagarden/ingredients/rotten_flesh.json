@@ -1,0 +1,19 @@
+{
+  "id": ["#forge:items/rotten_flesh"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Ugh, god, why did I put this in my tea? I'm so hungry now...",
+  "names": [
+    {
+      "name": "Stale",
+      "position": 1
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:hunger"
+    }
+  ]
+}

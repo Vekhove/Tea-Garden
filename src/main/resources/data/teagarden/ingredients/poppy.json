@@ -1,0 +1,18 @@
+{
+  "id": ["minecraft:poppy"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Who knew that such a common flower could make someone float sky high!?",
+  "names": [
+    {
+      "name": "Poppy"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:levitation"
+    }
+  ]
+}

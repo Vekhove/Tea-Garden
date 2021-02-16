@@ -1,0 +1,21 @@
+{
+  "id": ["#forge:items/lava"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Spicy"
+    },
+    {
+      "name": "Extra",
+      "position": -1
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "potency",
+      "value": 1,
+      "chance": 25,
+      "chance_change": "%value% = %value% - %value%/3"
+    }
+  ]
+}

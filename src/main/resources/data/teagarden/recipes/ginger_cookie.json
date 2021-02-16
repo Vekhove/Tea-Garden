@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+    "X": {
+      "item": "teagarden:ginger"
+    }
+  },
+  "result": {
+    "item": "teagarden:ginger_cookie",
+    "count": 8
+  }
+}

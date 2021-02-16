@@ -1,0 +1,16 @@
+{
+  "id": ["minecraft:regeneration"],
+  "type": "ingredient",
+  "color": "#CCCCCC",
+  "description": "Lilac petals are perfect for brewing, they return my health and I feel like a new person.",
+  "names": [
+    {
+      "name": "Lilac"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:regeneration"
+    }
+  ]
+}

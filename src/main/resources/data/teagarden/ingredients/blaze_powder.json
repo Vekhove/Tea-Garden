@@ -1,0 +1,20 @@
+{
+  "id": ["#forge:items/sugars"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Spicy"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "speed",
+      "value": -1
+    },
+    {
+      "type": "duration",
+      "value": 5,
+      "effect": ["minecraft:fire_resistance", "teagarden:hot_footed"]
+    }
+  ]
+}

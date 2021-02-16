@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "teagarden:block/pepper_vine_stage2"
+  }
+}

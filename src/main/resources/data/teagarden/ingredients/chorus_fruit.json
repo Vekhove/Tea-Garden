@@ -1,0 +1,19 @@
+{
+  "id": ["#forge:items/chorus_fruits"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "What a strange fruit... it teleports me all over the place!",
+  "names": [
+    {
+      "name": "Strange",
+      "position": 1
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:random_teleport"
+    }
+  ]
+}

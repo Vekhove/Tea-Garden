@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/pepper"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#000000",
+  "description": "Ohoho, I'm bouncing around!",
+  "names": [
+    {
+      "name": "Pepper"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:jump_boost"
+    }
+  ]
+}

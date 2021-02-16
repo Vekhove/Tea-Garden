@@ -1,0 +1,18 @@
+{
+  "id": ["minecraft:daisy"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "It seems like simple flowers can do any number of things! No one can see me after drinking Daisy Tea.",
+  "names": [
+    {
+      "name": "Daisy"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:invisibility"
+    }
+  ]
+}

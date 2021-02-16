@@ -1,0 +1,15 @@
+{
+  "id": ["#forge:items/water"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Watered-Down"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "potency",
+      "value": -1
+    }
+  ]
+}

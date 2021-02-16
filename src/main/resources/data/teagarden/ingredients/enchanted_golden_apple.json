@@ -1,0 +1,24 @@
+{
+  "id": ["#forge:items/enchanted_golden_apples"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Holy... this is so much better than Apple Tea!",
+  "names": [
+    {
+      "name": "Enchanted Golden Apple"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:speed",
+      "potency": 3
+    }
+  ],
+  "modifiers": [
+    {
+      "duration": 5
+    }
+  ]
+}

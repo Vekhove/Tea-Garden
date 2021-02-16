@@ -1,0 +1,16 @@
+{
+  "id": ["minecraft:dandelion"],
+  "type": "ingredient",
+  "color": "#CCCCCC",
+  "description": "These nice dandelions really improve my reaction time, I can punch a lot faster now!",
+  "names": [
+    {
+      "name": "Dandelion"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:attack_speed_up"
+    }
+  ]
+}

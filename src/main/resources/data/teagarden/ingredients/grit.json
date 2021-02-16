@@ -1,0 +1,20 @@
+{
+  "id": ["#forge:blocks/sand", "#forge:blocks/dirt"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Gritty"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "potency",
+      "value": -1,
+      "chance": 25
+    },
+    {
+      "type": "speed",
+      "value": -1
+    }
+  ]
+}

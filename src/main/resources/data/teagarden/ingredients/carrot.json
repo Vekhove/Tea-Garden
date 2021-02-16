@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/carrots"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Just as the stories foretold, carrots improve my vision at night!",
+  "names": [
+    {
+      "name": "Carrot"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:night_vision"
+    }
+  ]
+}

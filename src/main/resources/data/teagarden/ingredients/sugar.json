@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/sugars"],
+  "type": "mixer",
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Sweet"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "duration",
+      "min": 3,
+      "max": 5,
+      "change": "%value%-1"
+    }
+  ]
+}

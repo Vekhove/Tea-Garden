@@ -1,0 +1,28 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE"
+#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/"
+[[mods]]
+modId="teagarden"
+version="${file.jarVersion}"
+displayName="Tea Garden"
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+logoFile="examplemod.png"
+credits=""
+authors="Lilac"
+description='''
+Tea, Tea, Tea and More Tea!
+'''
+[[dependencies.examplemod]]
+modId="forge"
+mandatory=true
+versionRange="[36,)"
+ordering="NONE"
+side="BOTH"
+[[dependencies.examplemod]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.3,1.17)"
+ordering="NONE"
+side="BOTH"

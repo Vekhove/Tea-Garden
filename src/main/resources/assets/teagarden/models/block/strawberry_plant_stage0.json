@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "teagarden:block/strawberry_plant_stage0"
+  }
+}

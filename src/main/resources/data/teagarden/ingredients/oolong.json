@@ -1,0 +1,17 @@
+{
+  "id": ["#forge:items/oolong_tea_leaves"],
+  "type": "base",
+  "brewability": 1,
+  "color": "#FFFFFF",
+  "description": "This tea slows down my reaction times, but has the benefit of being easily brewed.",
+  "names": [
+    {
+      "name": "Oolong"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:mining_fatigue"
+    }
+  ]
+}

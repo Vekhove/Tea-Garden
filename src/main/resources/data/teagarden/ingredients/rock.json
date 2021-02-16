@@ -1,0 +1,9 @@
+{
+  "id": ["#forge:blocks/stone"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Chunky"
+    }
+  ]
+}

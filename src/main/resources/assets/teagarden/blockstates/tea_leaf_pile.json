@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "age=0,outside=false": {
+      "model": "teagarden:block/tea_leaf_pile"
+    },
+    "age=0,outside=true": {
+      "model": "teagarden:block/tea_leaf_pile"
+    },
+    "age=1,outside=false": {
+      "model": "teagarden:block/oolong_tea_leaf_pile"
+    },
+    "age=1,outside=true": {
+      "model": "teagarden:block/white_tea_leaf_pile"
+    },
+    "age=2,outside=false": {
+      "model": "teagarden:block/green_tea_leaf_pile"
+    },
+    "age=2,outside=true": {
+      "model": "teagarden:block/black_tea_leaf_pile"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/mushrooms"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "While I do prefer my mushrooms in stews, my arms just feel... longer.",
+  "names": [
+    {
+      "name": "Mushroom"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:range_up"
+    }
+  ]
+}

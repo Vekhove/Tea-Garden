@@ -1,0 +1,22 @@
+{
+  "id": ["minecraft:peony"],
+  "type": "ingredient",
+  "color": "#CCCCCC",
+  "description": "WOAH! Peonies... ahah! I CAN FLY!",
+  "names": [
+    {
+      "name": "Peony"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:flight"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "duration",
+      "value": -10
+    }
+  ]
+}

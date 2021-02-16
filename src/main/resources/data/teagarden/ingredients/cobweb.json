@@ -1,0 +1,9 @@
+{
+  "id": ["#forge:blocks/cobweb", "#forge:items/slime"],
+  "color": "#FFFFFF",
+  "names": [
+    {
+      "name": "Sticky"
+    }
+  ]
+}

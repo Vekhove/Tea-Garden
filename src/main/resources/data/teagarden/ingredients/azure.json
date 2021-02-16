@@ -1,0 +1,16 @@
+{
+  "id": ["minecraft:azure_bluet"],
+  "type": "ingredient",
+  "color": "#BBBBBB",
+  "description": "Using Azure Bluet as an ingredient has the odd effect of making me fall slowly.",
+  "names": [
+    {
+      "name": "Azure"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:slow_falling"
+    }
+  ]
+}

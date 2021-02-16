@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/rabbits_foot"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 1,
+  "color": "#CCCCCC",
+  "description": "Oh I feel lucky!!",
+  "names": [
+    {
+      "name": "Rabbit's Foot"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:luck"
+    }
+  ]
+}

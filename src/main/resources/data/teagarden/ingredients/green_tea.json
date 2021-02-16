@@ -1,0 +1,17 @@
+{
+  "id": ["#forge:items/green_tea_leaves"],
+  "type": "base",
+  "brewability": -1,
+  "color": "#F0F0C0",
+  "description": "It seems green tea is beneficial to my health, but it doesn't brew easily.",
+  "names": [
+    {
+      "name": "Green"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:instant_health"
+    }
+  ]
+}
