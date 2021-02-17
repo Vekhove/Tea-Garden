@@ -1,6 +1,7 @@
 {
-  "id": ["#forge:items/white_tea_leaves"],
+  "id": ["teagarden:dried_white_tea_leaves"],
   "type": "base",
+  "brewability": "good",
   "color": "#FFFFFF",
   "description": "Surprisingly, this tea seems to remove the effects of all other teas.",
   "names": [

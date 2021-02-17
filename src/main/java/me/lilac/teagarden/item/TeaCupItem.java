@@ -15,6 +15,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.DrinkHelper;
 import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class TeaCupItem extends Item {
 
     @Override
     public int getUseDuration(ItemStack stack) {
-        return (stack.hasTag() && stack.getTag().contains("speed")) ? stack.getTag().getInt("speed") : 32;
+        return (stack.hasTag() && stack.getTag().contains("Speed")) ? stack.getTag().getInt("Speed") : 32;
     }
 
     @Override
@@ -78,6 +79,11 @@ public class TeaCupItem extends Item {
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+        List<EffectInstance> effects = PotionUtils.getEffectsFromStack(stack);
+        tooltip.add(new StringTextComponent("Speed: " + stack.getOrCreateTag().getInt("Speed")));
+        for (EffectInstance effect : effects) {
+            tooltip.add(new StringTextComponent(effect.getEffectName() + " " + effect.getAmplifier() + " [" + effect.getDuration() + "]"));
+        }
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 }

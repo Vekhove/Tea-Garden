@@ -1,5 +1,6 @@
 {
-  "id": ["#forge:blocks/cobweb", "#forge:items/slime"],
+  "id": ["#forge:items/cobwebs", "#forge:items/slimeballs"],
+  "type": "mixer",
   "color": "#FFFFFF",
   "names": [
     {

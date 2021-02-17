@@ -3,8 +3,8 @@ package me.lilac.teagarden.block;
 import me.lilac.teagarden.container.TeaPotContainer;
 import me.lilac.teagarden.tileentity.TeaPotTileEntity;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.FurnaceBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerEntity;
@@ -29,7 +29,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 public class TeaPotBlock extends Block {
 
     public TeaPotBlock() {
-        super(Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(2.0F));
+        super(Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(0.2F).notSolid());
     }
 
     @Override
@@ -74,5 +74,10 @@ public class TeaPotBlock extends Block {
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
         builder.add(BlockStateProperties.FACING);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
     }
 }

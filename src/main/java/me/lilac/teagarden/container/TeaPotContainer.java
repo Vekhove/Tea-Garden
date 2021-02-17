@@ -28,16 +28,29 @@ public class TeaPotContainer extends Container {
 
         if (tileEntity != null) {
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-                addSlot(new SlotItemHandler(handler, 0, 0, 0));
-                addSlot(new SlotItemHandler(handler, 1, 0, 0));
-                addSlot(new SlotItemHandler(handler, 2, 0, 0));
-                addSlot(new SlotItemHandler(handler, 3, 0, 0));
-                addSlot(new SlotItemHandler(handler, 4, 0, 0));
-                addSlot(new SlotItemHandler(handler, 5, 0, 0));
-                addSlot(new SlotItemHandler(handler, 6, 0, 0));
+                addSlot(new SlotItemHandler(handler, 0, 21, 31));
+                addSlot(new SlotItemHandler(handler, 1, 47, 13));
+                addSlot(new SlotItemHandler(handler, 2, 47, 49));
+                addSlot(new SlotItemHandler(handler, 3, 70, 31));
+                addSlot(new SlotItemHandler(handler, 4, 93, 31));
+                addSlot(new SlotItemHandler(handler, 5, 116, 31));
+                addSlot(new SlotItemHandler(handler, 6, 151, 31));
             });
 
+            addPlayerSlots(9, 8, 84, 3, 9); // Inventory
+            addPlayerSlots(0, 8, 142, 1, 9); // Hotbar
+        }
+    }
 
+    private void addPlayerSlots(int index, int x, int y, int width, int height) {
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+                addSlot(new SlotItemHandler(this.playerInventory, index, x, y));
+                x += 18;
+                index++;
+            }
+            x = 8;
+            y += 18;
         }
     }
 
@@ -49,6 +62,8 @@ public class TeaPotContainer extends Container {
     @Override
     public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
         // Shift Click Manager
+        // Place datapack items in correct places,
+        // Place other items wherever - Make tea: Weird Crafting Table Tea
         return ItemStack.EMPTY;
     }
 }

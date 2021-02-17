@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "teagarden:dried_black_tea_leaves",
+    "teagarden:dried_white_tea_leaves",
+    "teagarden:dried_green_tea_leaves",
+    "teagarden:dried_oolong_tea_leaves"
+  ]
+}

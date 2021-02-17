@@ -1,5 +1,6 @@
 {
   "id": ["#forge:items/cocoa_beans", "#forge:items/chocolate"],
+  "type": "mixer",
   "color": "#FFFFFF",
   "names": [
     {

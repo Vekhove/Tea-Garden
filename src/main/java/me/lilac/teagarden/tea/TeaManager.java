@@ -6,7 +6,6 @@ import com.google.gson.JsonObject;
 import me.lilac.teagarden.TeaGarden;
 import me.lilac.teagarden.tea.data.Brewability;
 import me.lilac.teagarden.tea.data.IngredientType;
-import me.lilac.teagarden.tea.data.PositionedName;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.item.Item;
 import net.minecraft.profiler.IProfiler;
@@ -16,12 +15,10 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import java.awt.*;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class TeaManager extends JsonReloadListener {
 
@@ -37,6 +34,7 @@ public class TeaManager extends JsonReloadListener {
 
         teaIngredients.forEach((ingredient) -> {
             if (ingredient.getType() == IngredientType.BASE) ingredients.addAll(ingredient.getItems());
+
         });
 
         return ingredients;
@@ -101,8 +99,10 @@ public class TeaManager extends JsonReloadListener {
                 }
 
                 List<Item> items = tag.getAllElements();
-                itemName = items.get(0).getName();
-                builder.addItems(tag.getAllElements());
+                if (!items.isEmpty()) {
+                    itemName = items.get(0).getName();
+                    builder.addItems(items);
+                }
 
             } else {
                 Item item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(namespace, id));
@@ -119,6 +119,7 @@ public class TeaManager extends JsonReloadListener {
         builder.withType(type);
 
         // Brewability
+        // TODO: Total Brewability so datapack items can have brewability
         Brewability brewability = ingredient.has("brewability") ? Brewability.valueOf(ingredient.get("brewability").getAsString().toUpperCase()) : Brewability.GOOD;
         builder.withBrewability(brewability);
 
@@ -136,6 +137,7 @@ public class TeaManager extends JsonReloadListener {
 
         // Names
         if (ingredient.has("names")) {
+            /*
             JsonObject names = ingredient.getAsJsonObject("names");
             String name = names.has("name") ? names.get("name").getAsString() : itemName.getString();
             int position = 0;
@@ -153,7 +155,7 @@ public class TeaManager extends JsonReloadListener {
                 }
             }
 
-            builder.addName(name, position);
+            builder.addName(name, position);*/
         }
 
         // Effects
@@ -163,5 +165,9 @@ public class TeaManager extends JsonReloadListener {
 
         TeaIngredient teaIngredient = builder.build();
         this.teaIngredients.add(teaIngredient);
+    }
+
+    public List<TeaIngredient> getTeaIngredients() {
+        return teaIngredients;
     }
 }

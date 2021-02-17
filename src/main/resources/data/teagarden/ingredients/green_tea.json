@@ -1,7 +1,7 @@
 {
-  "id": ["#forge:items/green_tea_leaves"],
+  "id": ["teagarden:dried_green_tea_leaves"],
   "type": "base",
-  "brewability": -1,
+  "brewability": "bad",
   "color": "#F0F0C0",
   "description": "It seems green tea is beneficial to my health, but it doesn't brew easily.",
   "names": [

@@ -1,5 +1,5 @@
 {
-  "id": ["#forge:items/carrots"],
+  "id": ["#forge:items/crops/carrot"],
   "type": "ingredient",
   "hunger": 1,
   "saturation": 1,

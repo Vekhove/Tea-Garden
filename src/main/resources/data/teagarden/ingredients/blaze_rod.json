@@ -1,5 +1,5 @@
 {
-  "id": ["#forge:items/blaze_rods"],
+  "id": ["#forge:items/rods/blaze"],
   "type": "ingredient",
   "color": "#BBBBBB",
   "description": "Incredible! These blaze rods have a chance of allowing me to walk on lava!",

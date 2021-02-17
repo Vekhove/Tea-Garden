@@ -22,7 +22,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-
 @Mod.EventBusSubscriber(modid = TeaGarden.ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class FeatureRegistry {
 
@@ -81,5 +80,4 @@ public class FeatureRegistry {
                             .withPlacement(Features.Placements.HEIGHTMAP_PLACEMENT).func_242731_b(1));
         }
     }
-
 }

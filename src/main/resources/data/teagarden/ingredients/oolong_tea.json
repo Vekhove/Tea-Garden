@@ -1,7 +1,7 @@
 {
-  "id": ["#forge:items/oolong_tea_leaves"],
+  "id": ["teagarden:dried_oolong_tea_leaves"],
   "type": "base",
-  "brewability": 1,
+  "brewability": "good",
   "color": "#FFFFFF",
   "description": "This tea slows down my reaction times, but has the benefit of being easily brewed.",
   "names": [

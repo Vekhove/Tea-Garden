@@ -1,5 +1,5 @@
 {
-  "id": ["#forge:items/beetroots"],
+  "id": ["#forge:items/crops/beetroot"],
   "type": "ingredient",
   "hunger": 1,
   "saturation": 1,

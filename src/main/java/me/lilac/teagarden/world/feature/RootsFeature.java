@@ -1,7 +1,6 @@
 package me.lilac.teagarden.world.feature;
 
 import com.mojang.serialization.Codec;
-import me.lilac.teagarden.block.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.math.BlockPos;
@@ -21,22 +20,21 @@ public class RootsFeature extends Feature<BlockClusterFeatureConfig> {
     @Override
     public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, BlockClusterFeatureConfig config) {
         BlockState blockstate = config.stateProvider.getBlockState(rand, pos);
-        BlockPos blockpos;
-        if (config.field_227298_k_) {
-            blockpos = reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos);
-        } else {
-            blockpos = pos;
-        }
+        BlockPos blockpos = config.field_227298_k_ ? reader.getHeight(Heightmap.Type.OCEAN_FLOOR_WG, pos) : pos;
 
         int i = 0;
-        BlockPos.Mutable blockpos$mutable = new BlockPos.Mutable();
+        BlockPos.Mutable mutablePos = new BlockPos.Mutable();
 
         for(int j = 0; j < config.tryCount; ++j) {
-            blockpos$mutable.setAndOffset(blockpos, rand.nextInt(config.xSpread + 1) - rand.nextInt(config.xSpread + 1), rand.nextInt(config.ySpread + 1) - rand.nextInt(config.ySpread + 1), rand.nextInt(config.zSpread + 1) - rand.nextInt(config.zSpread + 1));
-            BlockPos blockpos1 = blockpos$mutable.down();
-            BlockState blockstate1 = reader.getBlockState(blockpos1);
-            if ((reader.isAirBlock(blockpos$mutable) || config.isReplaceable && reader.getBlockState(blockpos$mutable).getMaterial().isReplaceable()) && blockstate.isValidPosition(reader, blockpos$mutable) && (config.whitelist.isEmpty() || config.whitelist.contains(blockstate1.getBlock())) && !config.blacklist.contains(blockstate1) && (!config.requiresWater || reader.getFluidState(blockpos1.west()).isTagged(FluidTags.WATER) || reader.getFluidState(blockpos1.east()).isTagged(FluidTags.WATER) || reader.getFluidState(blockpos1.north()).isTagged(FluidTags.WATER) || reader.getFluidState(blockpos1.south()).isTagged(FluidTags.WATER))) {
-                config.blockPlacer.place(reader, blockpos$mutable, blockstate, rand);
+            mutablePos.setAndOffset(blockpos, rand.nextInt(config.xSpread + 1) - rand.nextInt(config.xSpread + 1), rand.nextInt(config.ySpread + 1) - rand.nextInt(config.ySpread + 1), rand.nextInt(config.zSpread + 1) - rand.nextInt(config.zSpread + 1));
+            BlockPos blockPos = mutablePos.down();
+            BlockState blockState = reader.getBlockState(blockPos);
+            if ((reader.isAirBlock(mutablePos) || config.isReplaceable && reader.getBlockState(mutablePos).getMaterial().isReplaceable())
+                    && blockstate.isValidPosition(reader, mutablePos) && (config.whitelist.isEmpty() || config.whitelist.contains(blockState.getBlock()))
+                    && !config.blacklist.contains(blockState) && (!config.requiresWater || reader.getFluidState(blockPos.west()).isTagged(FluidTags.WATER)
+                    || reader.getFluidState(blockpos.east()).isTagged(FluidTags.WATER) || reader.getFluidState(blockPos.north()).isTagged(FluidTags.WATER)
+                    || reader.getFluidState(blockPos.south()).isTagged(FluidTags.WATER))) {
+                config.blockPlacer.place(reader, blockPos, blockstate, rand);
                 ++i;
             }
         }

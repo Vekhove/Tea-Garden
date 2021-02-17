@@ -1,5 +1,6 @@
 {
-  "id": ["#forge:items/sugars"],
+  "id": ["#forge:items/blaze_powders"],
+  "type": "mixer",
   "color": "#FFFFFF",
   "names": [
     {

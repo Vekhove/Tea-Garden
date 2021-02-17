@@ -1,7 +1,7 @@
 {
-  "id": ["#forge:items/matcha_powder"],
+  "id": ["teagarden:matcha_powder"],
   "type": "base",
-  "brewability": -2,
+  "brewability": "bad",
   "color": "#FFFFFF",
   "description": "Astonishing! Matcha Tea heals all ailments, but it is very difficult to brew.",
   "names": [

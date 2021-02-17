@@ -1,5 +1,5 @@
 {
-  "id": ["#forge:items/chorus_fruits"],
+  "id": ["minecraft:chorus_fruit"],
   "type": "ingredient",
   "hunger": 1,
   "saturation": 1,

@@ -1,5 +1,6 @@
 {
-  "id": ["#forge:items/tapioca", "#forge:items/cassava"],
+  "id": ["#forge:items/tapioca"],
+  "type": "mixer",
   "color": "#FFFFFF",
   "names": [
     {
