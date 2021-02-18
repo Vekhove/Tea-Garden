@@ -74,7 +74,7 @@ public class TeaPotContainer extends Container {
     }
 
     public int getProgress() {
-        int max = 200;
+        int max = 1600;
         int current = max - this.fields.get(0);
         return max != 0 && current != 0 && current < max ? current * 24 / max : 0;
     }

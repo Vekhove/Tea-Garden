@@ -6,10 +6,8 @@ import me.lilac.teagarden.TeaGarden;
 import me.lilac.teagarden.container.TeaPotContainer;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 
 public class TeaPotScreen extends ContainerScreen<TeaPotContainer> {
