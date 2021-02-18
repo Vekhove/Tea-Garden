@@ -1,0 +1,22 @@
+{
+  "id": ["#forge:items/cakes"],
+  "type": "mixer",
+  "color": "#FFF8E2",
+  "description": "Wow, this is so sweet. I can gulp it down so easily.",
+  "names": [
+    {
+      "name": "Extra",
+      "position": 0
+    },
+    {
+      "name": "Sweet"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "speed",
+      "min": -6,
+      "max": -12
+    }
+  ]
+}

@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
 import net.minecraft.potion.EffectInstance;
+import net.minecraft.potion.EffectUtils;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.ActionResult;
@@ -16,6 +17,8 @@ import net.minecraft.util.DrinkHelper;
 import net.minecraft.util.Hand;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import java.util.List;
 
@@ -64,25 +67,31 @@ public class TeaCupItem extends Item {
 
     @Override
     public UseAction getUseAction(ItemStack stack) {
-        return UseAction.DRINK;
+        return PotionUtils.getEffectsFromStack(stack).isEmpty() ? UseAction.NONE : UseAction.DRINK;
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        return DrinkHelper.startDrinking(worldIn, playerIn, handIn);
-    }
-
-    @Override
-    public String getTranslationKey(ItemStack stack) {
-        return super.getTranslationKey(stack);
+        return PotionUtils.getEffectsFromStack(playerIn.getHeldItem(handIn)).isEmpty() ? ActionResult.resultFail(playerIn.getHeldItem(handIn)) : DrinkHelper.startDrinking(worldIn, playerIn, handIn);
     }
 
     @Override
     public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        List<EffectInstance> effects = PotionUtils.getEffectsFromStack(stack);
-        tooltip.add(new StringTextComponent("Speed: " + stack.getOrCreateTag().getInt("Speed")));
-        for (EffectInstance effect : effects) {
-            tooltip.add(new StringTextComponent(effect.getEffectName() + " " + effect.getAmplifier() + " [" + effect.getDuration() + "]"));
+        for (EffectInstance effect : PotionUtils.getEffectsFromStack(stack)) {
+            tooltip.add(
+                            new TranslationTextComponent(effect.getEffectName()).mergeStyle(TextFormatting.AQUA)
+                            .append(new StringTextComponent(" "))
+                            .append(new TranslationTextComponent("potion.potency." + effect.getAmplifier()).mergeStyle(TextFormatting.WHITE))
+                            .append(new StringTextComponent(effect.getAmplifier() == 0 ? "" : " "))
+                            .append(new StringTextComponent("[").mergeStyle(TextFormatting.DARK_PURPLE))
+                            .append(new StringTextComponent("" + EffectUtils.getPotionDurationString(effect.getEffectInstance(), 1.0F)).mergeStyle(TextFormatting.LIGHT_PURPLE))
+                            .append(new StringTextComponent("]").mergeStyle(TextFormatting.DARK_PURPLE))
+            );
+        }
+
+        if (!PotionUtils.getEffectsFromStack(stack).isEmpty()) {
+            tooltip.add(new StringTextComponent(""));
+            tooltip.add(new TranslationTextComponent("teacup.drinkingTime", (stack.getOrCreateTag().getInt("Speed") * 0.05)));
         }
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }

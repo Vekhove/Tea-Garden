@@ -1,0 +1,16 @@
+{
+  "id": ["biomesoplenty:burning_blossom"],
+  "type": "ingredient",
+  "color": "#FFD354",
+  "description": "THIS LITERALLY SET ME ON FIRE. DO NOT BREW THIS.",
+  "names": [
+    {
+      "name": "Burning Blossom"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:instant_burning"
+    }
+  ]
+}

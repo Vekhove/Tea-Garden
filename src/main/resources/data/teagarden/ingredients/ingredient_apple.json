@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/apples"],
+  "type": "ingredient",
+  "hunger": 2,
+  "saturation": 1.2,
+  "color": "#FF1B2D",
+  "description": "I discovered that apples have the effect of increasing my movement speed.",
+  "names": [
+    {
+      "name": "Apple"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:speed"
+    }
+  ]
+}

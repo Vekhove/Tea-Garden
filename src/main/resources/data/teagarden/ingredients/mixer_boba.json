@@ -1,0 +1,30 @@
+{
+  "id": ["#forge:items/tapioca"],
+  "type": "mixer",
+  "color": "#E9ECF0",
+  "description": "Ooo, delicious. So refreshing. I can feel a lot of benefits from this.",
+  "names": [
+    {
+      "name": "Boba",
+      "position": 3
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "potency",
+      "value": 1,
+      "chance": 10
+    },
+    {
+      "type": "duration",
+      "min": 20,
+      "max": 60,
+      "change": "%value%-20"
+    },
+    {
+      "type": "speed",
+      "min": -4,
+      "max": -8
+    }
+  ]
+}

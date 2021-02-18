@@ -1,0 +1,16 @@
+{
+  "id": ["biomesoplenty:blue_hydrangea"],
+  "type": "ingredient",
+  "color": "#78C1E8",
+  "description": "I'm the water flower now!",
+  "names": [
+    {
+      "name": "Blue Hydrangea"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:water_breathing"
+    }
+  ]
+}

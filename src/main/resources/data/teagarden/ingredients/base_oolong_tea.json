@@ -1,0 +1,17 @@
+{
+  "id": ["teagarden:dried_oolong_tea_leaves"],
+  "type": "base",
+  "brewability": 1,
+  "color": "#D0C559",
+  "description": "This tea slows down my reaction times, but has the benefit of being easily brewed.",
+  "names": [
+    {
+      "name": "Oolong"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:mining_fatigue"
+    }
+  ]
+}

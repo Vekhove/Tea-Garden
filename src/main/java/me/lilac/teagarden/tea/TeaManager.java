@@ -1,10 +1,10 @@
 package me.lilac.teagarden.tea;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import me.lilac.teagarden.TeaGarden;
-import me.lilac.teagarden.tea.data.Brewability;
 import me.lilac.teagarden.tea.data.IngredientType;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.item.Item;
@@ -120,8 +120,7 @@ public class TeaManager extends JsonReloadListener {
 
         // Brewability
         // TODO: Total Brewability so datapack items can have brewability
-        Brewability brewability = ingredient.has("brewability") ? Brewability.valueOf(ingredient.get("brewability").getAsString().toUpperCase()) : Brewability.GOOD;
-        builder.withBrewability(brewability);
+        builder.withBrewability(ingredient.has("brewability") ? ingredient.get("brewability").getAsInt() : 0);
 
         // Hunger
         int hunger = ingredient.has("hunger") ? ingredient.get("hunger").getAsInt() : 0;
@@ -137,25 +136,28 @@ public class TeaManager extends JsonReloadListener {
 
         // Names
         if (ingredient.has("names")) {
-            /*
-            JsonObject names = ingredient.getAsJsonObject("names");
-            String name = names.has("name") ? names.get("name").getAsString() : itemName.getString();
-            int position = 0;
+            JsonArray names = ingredient.getAsJsonArray("names");
+            for (JsonElement name : names) {
+                JsonObject nameObj = name.getAsJsonObject();
 
-            if (names.has("position")) {
-                position = names.get("position").getAsInt();
-            } else {
-                switch (type) {
-                    case BASE:
-                        position = 2;
-                        break;
-                    case INGREDIENT:
-                        position = 1;
-                        break;
+                String nameStr = nameObj.has("name") ? nameObj.get("name").getAsString() : itemName.getString();
+                int position = 0;
+
+                if (nameObj.has("position")) {
+                    position = nameObj.get("position").getAsInt();
+                } else {
+                    switch (type) {
+                        case BASE:
+                            position = 2;
+                            break;
+                        case INGREDIENT:
+                            position = 1;
+                            break;
+                    }
                 }
-            }
 
-            builder.addName(name, position);*/
+                builder.addName(nameStr, position);
+            }
         }
 
         // Effects

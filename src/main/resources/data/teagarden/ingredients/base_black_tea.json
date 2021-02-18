@@ -1,0 +1,17 @@
+{
+  "id": ["teagarden:dried_black_tea_leaves"],
+  "type": "base",
+  "brewability": 2,
+  "color": "#585C2E",
+  "description": "The caffeine in these slow me down, but they seem better for brewing.",
+  "names": [
+    {
+      "name": "Black"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:slowness"
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 package me.lilac.teagarden.tea;
 
-import me.lilac.teagarden.tea.data.Brewability;
 import me.lilac.teagarden.tea.data.IngredientModifier;
 import me.lilac.teagarden.tea.data.IngredientType;
 import me.lilac.teagarden.tea.data.PositionedName;
@@ -15,7 +14,7 @@ public class TeaIngredient {
 
     private List<Item> items;
     private IngredientType type;
-    private Brewability brewability;
+    private int brewability;
     private int hunger;
     private int saturation;
     private Color color;
@@ -48,11 +47,11 @@ public class TeaIngredient {
         return type;
     }
 
-    public void setBrewability(Brewability brewability) {
+    public void setBrewability(int brewability) {
         this.brewability = brewability;
     }
 
-    public Brewability getBrewability() {
+    public int getBrewability() {
         return brewability;
     }
 
@@ -134,7 +133,7 @@ public class TeaIngredient {
             return this;
         }
 
-        public TeaIngredient.Builder withBrewability(Brewability brewability) {
+        public TeaIngredient.Builder withBrewability(int brewability) {
             this.ingredient.brewability = brewability;
             return this;
         }

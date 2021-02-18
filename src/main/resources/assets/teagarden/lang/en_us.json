@@ -28,6 +28,13 @@
   "block.teagarden.cassava_root": "Cassava Root",
 
   "screen.teagarden.tea_pot": "Tea Pot",
+  "tooltip.teagarden.waterLevel": "Water Level: %s/%s",
 
-  "dataPack.reload.fail": "Tea Garden encountered an error while reloading."
+  "dataPack.reload.fail": "Tea Garden encountered an error while reloading.",
+  "teacup.drinkingTime": "\u00A77Drinking Time: \u00A7F%ss",
+
+  "potion.potency.6": "VII",
+  "potion.potency.7": "VIII",
+  "potion.potency.8": "IX",
+  "potion.potency.9": "X"
 }

@@ -1,11 +1,12 @@
 package me.lilac.teagarden.container;
 
 import me.lilac.teagarden.block.BlockRegistry;
+import me.lilac.teagarden.tileentity.TeaPotTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.IIntArray;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -16,25 +17,29 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 
 public class TeaPotContainer extends Container {
 
-    private TileEntity tileEntity;
+    private TeaPotTileEntity tileEntity;
     private PlayerEntity playerEntity;
     private IItemHandler playerInventory;
+    private IIntArray fields;
 
     public TeaPotContainer(int windowId, World world, BlockPos pos, PlayerInventory playerInventory, PlayerEntity playerEntity) {
         super(ContainerRegistry.TEA_POT.get(), windowId);
-        tileEntity = world.getTileEntity(pos);
+        this.tileEntity = (TeaPotTileEntity) world.getTileEntity(pos);
         this.playerEntity = playerEntity;
         this.playerInventory = new InvWrapper(playerInventory);
+        this.fields = this.tileEntity.fields;
+        assertIntArraySize(this.fields, 2);
+        this.trackIntArray(this.fields);
 
         if (tileEntity != null) {
             tileEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-                addSlot(new SlotItemHandler(handler, 0, 21, 31));
-                addSlot(new SlotItemHandler(handler, 1, 47, 13));
-                addSlot(new SlotItemHandler(handler, 2, 47, 49));
-                addSlot(new SlotItemHandler(handler, 3, 70, 31));
-                addSlot(new SlotItemHandler(handler, 4, 93, 31));
-                addSlot(new SlotItemHandler(handler, 5, 116, 31));
-                addSlot(new SlotItemHandler(handler, 6, 151, 31));
+                addSlot(new SlotItemHandler(handler, 0, 80, 12));
+                addSlot(new SlotItemHandler(handler, 1, 58, 20));
+                addSlot(new SlotItemHandler(handler, 2, 102, 20));
+                addSlot(new SlotItemHandler(handler, 3, 58, 49));
+                addSlot(new SlotItemHandler(handler, 4, 80, 57));
+                addSlot(new SlotItemHandler(handler, 5, 102, 49));
+                addSlot(new SlotItemHandler(handler, 6, 150, 35));
             });
 
             addPlayerSlots(9, 8, 84, 3, 9); // Inventory
@@ -64,6 +69,23 @@ public class TeaPotContainer extends Container {
         // Shift Click Manager
         // Place datapack items in correct places,
         // Place other items wherever - Make tea: Weird Crafting Table Tea
+        this.fields.set(0, -1);
         return ItemStack.EMPTY;
+    }
+
+    public int getProgress() {
+        int max = 200;
+        int current = max - this.fields.get(0);
+        return max != 0 && current != 0 && current < max ? current * 24 / max : 0;
+    }
+
+    public int getWaterLevel() {
+        int max = 18;
+        int current = this.fields.get(1);
+        return max != 0 && current != 8 ? current * 47 / max : 0;
+    }
+
+    public int getCurrentWater() {
+        return this.fields.get(1);
     }
 }

@@ -1,0 +1,16 @@
+{
+  "id": ["#forge:items/bamboo"],
+  "type": "ingredient",
+  "color": "#5E8A24",
+  "description": "Bamboo acts as strong as ever, providing me a defence against enemies.",
+  "names": [
+    {
+      "name": "Bamboo"
+    }
+  ],
+  "effects": [
+    {
+      "id": "minecraft:resistance"
+    }
+  ]
+}

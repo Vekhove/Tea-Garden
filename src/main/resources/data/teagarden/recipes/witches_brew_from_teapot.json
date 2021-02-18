@@ -1,0 +1,14 @@
+{
+  "type": "teagarden:tea_pot",
+  "ingredients": [
+    {
+      "ingredient": "ingredient_frog"
+    },
+    {
+      "ingredient": "ingredient_bat_wing"
+    }
+  ],
+  "result": {
+    "item": "teagarden:tea_pot",
+  }
+}

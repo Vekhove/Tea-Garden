@@ -1,0 +1,22 @@
+{
+  "id": ["#forge:items/blaze_powders"],
+  "type": "mixer",
+  "color": "#FFFE31",
+  "description": "This is so... spicy. Woah, it feels like I'm on fire. I can hardly drink it.",
+  "names": [
+    {
+      "name": "Spicy"
+    }
+  ],
+  "modifiers": [
+    {
+      "type": "speed",
+      "value": 10
+    },
+    {
+      "type": "duration",
+      "value": 100,
+      "effect": ["minecraft:fire_resistance", "teagarden:hot_footed"]
+    }
+  ]
+}

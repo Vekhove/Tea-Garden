@@ -1,0 +1,18 @@
+{
+  "id": ["#forge:items/crops/beetroot"],
+  "type": "ingredient",
+  "hunger": 1,
+  "saturation": 0.6,
+  "color": "#B6484C",
+  "description": "Beetroot... this ingredient changes something in me. Items are drawn towards my body.",
+  "names": [
+    {
+      "name": "Beetroot"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:magnetism"
+    }
+  ]
+}

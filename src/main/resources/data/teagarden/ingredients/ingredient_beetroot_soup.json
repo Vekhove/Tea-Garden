@@ -1,0 +1,19 @@
+{
+  "id": ["#forge:items/beetroot_soups"],
+  "type": "ingredient",
+  "hunger": 3,
+  "saturation": 3.6,
+  "color": "#B82A30",
+  "description": "As I thought, Tea with Beetroot Soup is a more potent version of Beetroot Tea!",
+  "names": [
+    {
+      "name": "Beetroot"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden:magnetism",
+      "potency": 2
+    }
+  ]
+}

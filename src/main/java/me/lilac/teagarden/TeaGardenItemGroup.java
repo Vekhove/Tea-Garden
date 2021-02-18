@@ -4,7 +4,6 @@ import me.lilac.teagarden.item.ItemRegistry;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-
 import java.util.Arrays;
 
 public class TeaGardenItemGroup extends ItemGroup {
