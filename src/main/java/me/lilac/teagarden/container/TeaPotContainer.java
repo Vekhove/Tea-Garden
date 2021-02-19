@@ -1,10 +1,12 @@
 package me.lilac.teagarden.container;
 
+import me.lilac.teagarden.TeaGarden;
 import me.lilac.teagarden.block.BlockRegistry;
 import me.lilac.teagarden.tileentity.TeaPotTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.container.Container;
+import net.minecraft.inventory.container.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIntArray;
 import net.minecraft.util.IWorldPosCallable;
@@ -66,11 +68,36 @@ public class TeaPotContainer extends Container {
 
     @Override
     public ItemStack transferStackInSlot(PlayerEntity playerIn, int index) {
-        // Shift Click Manager
-        // Place datapack items in correct places,
-        // Place other items wherever - Make tea: Weird Crafting Table Tea
-        this.fields.set(0, -1);
-        return ItemStack.EMPTY;
+        ItemStack itemStack = ItemStack.EMPTY;
+        Slot slot = this.inventorySlots.get(index);
+
+        if (slot != null & slot.getHasStack()) {
+            ItemStack slotItem = slot.getStack();
+            itemStack = slotItem.copy();
+
+            // Result
+            if (index == 6) {
+                if (!this.mergeItemStack(slotItem, 7, 39, true)) return ItemStack.EMPTY;
+                slot.onSlotChange(slotItem, itemStack);
+            } else if (index > 6) {
+                if (TeaGarden.getInstance().getTeaManager().getBaseIngredients().contains(slotItem.getItem())) {
+                    if (!this.mergeItemStack(slotItem, 0, 1, true)) return ItemStack.EMPTY;
+                } else if (TeaGarden.getInstance().getTeaManager().getMixers().contains(slotItem.getItem())) {
+                    if (!this.mergeItemStack(slotItem, 3, 6, false)) return ItemStack.EMPTY;
+                } else {
+                    if (!this.mergeItemStack(slotItem, 1, 3, false)) return ItemStack.EMPTY;
+                }
+            } else if (!this.mergeItemStack(slotItem, 7, 39, false)) return ItemStack.EMPTY;
+
+            if (slotItem.isEmpty()) slot.putStack(ItemStack.EMPTY);
+            else slot.onSlotChanged();
+
+            if (slotItem.getCount() == itemStack.getCount()) return ItemStack.EMPTY;
+
+            slot.onTake(playerIn, slotItem);
+        }
+
+        return itemStack;
     }
 
     public int getProgress() {
