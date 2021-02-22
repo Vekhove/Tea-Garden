@@ -1,15 +1,15 @@
 package me.lilac.teagarden.tileentity;
 
 import me.lilac.teagarden.TeaGarden;
+import me.lilac.teagarden.item.ItemRegistry;
 import me.lilac.teagarden.tea.TeaIngredient;
 import me.lilac.teagarden.tea.TeaUtils;
 import me.lilac.teagarden.tea.data.IngredientType;
 import net.minecraft.block.AbstractFurnaceBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.item.Item;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
@@ -48,6 +48,12 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
             return;
         }
 
+        // Can't brew if there's no cups!
+        if (this.itemStackHandler.getStackInSlot(6).getItem() != ItemRegistry.TEA_CUP.get() || !this.itemStackHandler.getStackInSlot(7).isEmpty()) {
+            brewingTime = -1;
+            return;
+        }
+
         // Reset the brewing time if the block under isn't a furnace, or if there's no water left.
         Block underBlock = this.world.getBlockState(this.pos.down()).getBlock();
         if (!(underBlock instanceof AbstractFurnaceBlock) || !this.world.getBlockState(this.pos.down()).get(BlockStateProperties.LIT) || waterAmount == 0) {
@@ -55,12 +61,15 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
             return;
         }
 
-        // TODO: Faster brewing with smoker & blast furnace
-        // TODO: Don't keep brewing if theres a tea in the output
-        // TODO: Add hopper support
-
         // If the brewing time is 0, and all the previous conditions are met - set value.
-        if (brewingTime <= 0) brewingTime = maxBrewingTime;
+        if (brewingTime <= 0) {
+            if (underBlock == Blocks.FURNACE) {
+                maxBrewingTime = 1600; // TODO: Get Config Value
+            } else if (underBlock == Blocks.BLAST_FURNACE || underBlock == Blocks.SMOKER) {
+                maxBrewingTime = 800; // TODO: Get Config Value
+            }
+            brewingTime = maxBrewingTime;
+        }
         brewingTime--;
 
         // If the brewing has completed, check if ingredients exist and add them to the array.
@@ -68,33 +77,32 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
             List<TeaIngredient> ingredients = new ArrayList<>();
 
             // Slot 0 should never be null.
-            ingredients.add(TeaUtils.getIngredientFiltered((ingredient) -> {
-                Item item = this.itemStackHandler.getStackInSlot(0).getItem();
-                return ingredient.getItems().contains(item) && ingredient.getType() == IngredientType.BASE;
-            }));
+            ItemStack baseStack = this.itemStackHandler.getStackInSlot(0);
+            if (!baseStack.isEmpty()) ingredients.add(TeaUtils.getIngredientFiltered(baseStack, (ingredient) ->
+                    ingredient.getItems().contains(baseStack.getItem()) && ingredient.getType() == IngredientType.BASE));
 
-            Item item1 = this.itemStackHandler.getStackInSlot(1).getItem();
-            if (item1 != Items.AIR) ingredients.add(TeaUtils.getIngredientFiltered((ingredient) ->
-                    ingredient.getItems().contains(item1) && ingredient.getType() == IngredientType.INGREDIENT));
+            ItemStack ingredientStack = this.itemStackHandler.getStackInSlot(1);
+            if (!ingredientStack.isEmpty()) ingredients.add(TeaUtils.getIngredientFiltered(ingredientStack, (ingredient) ->
+                    ingredient.getItems().contains(ingredientStack.getItem()) && ingredient.getType() == IngredientType.INGREDIENT));
 
-            Item item2 = this.itemStackHandler.getStackInSlot(2).getItem();
-            if (item2 != Items.AIR) ingredients.add(TeaUtils.getIngredientFiltered((ingredient) ->
-                    ingredient.getItems().contains(item2) && ingredient.getType() == IngredientType.INGREDIENT));
+            ItemStack ingredientStack1 = this.itemStackHandler.getStackInSlot(2);
+            if (!ingredientStack1.isEmpty()) ingredients.add(TeaUtils.getIngredientFiltered(ingredientStack1, (ingredient) ->
+                    ingredient.getItems().contains(ingredientStack1.getItem()) && ingredient.getType() == IngredientType.INGREDIENT));
 
-            Item item3 = this.itemStackHandler.getStackInSlot(3).getItem();
-            if (item3 != Items.AIR) ingredients.add(TeaUtils.getIngredientFiltered((ingredient) ->
-                    ingredient.getItems().contains(item3) && ingredient.getType() == IngredientType.MIXER));
+            ItemStack mixerStack = this.itemStackHandler.getStackInSlot(3);
+            if (!mixerStack.isEmpty()) ingredients.add(TeaUtils.getIngredientFiltered(mixerStack, (ingredient) ->
+                    ingredient.getItems().contains(mixerStack.getItem()) && ingredient.getType() == IngredientType.MIXER));
 
-            Item item4 = this.itemStackHandler.getStackInSlot(4).getItem();
-            if (item4 != Items.AIR) ingredients.add(TeaUtils.getIngredientFiltered((ingredient) ->
-                    ingredient.getItems().contains(item4) && ingredient.getType() == IngredientType.MIXER));
+            ItemStack mixerStack1 = this.itemStackHandler.getStackInSlot(4);
+            if (!mixerStack1.isEmpty()) ingredients.add(TeaUtils.getIngredientFiltered(mixerStack1, (ingredient) ->
+                    ingredient.getItems().contains(mixerStack1.getItem()) && ingredient.getType() == IngredientType.MIXER));
 
-            Item item5 = this.itemStackHandler.getStackInSlot(5).getItem();
-            if (item5 != Items.AIR) ingredients.add(TeaUtils.getIngredientFiltered((ingredient) ->
-                    ingredient.getItems().contains(item5) && ingredient.getType() == IngredientType.MIXER));
+            ItemStack mixerStack2 = this.itemStackHandler.getStackInSlot(5);
+            if (!mixerStack2.isEmpty()) ingredients.add(TeaUtils.getIngredientFiltered(mixerStack2, (ingredient) ->
+                    ingredient.getItems().contains(mixerStack2.getItem()) && ingredient.getType() == IngredientType.MIXER));
 
             // Make Tea Cup with the given ingredients!
-            this.itemStackHandler.setStackInSlot(6, TeaUtils.getTeaFromIngredients(ingredients.toArray(new TeaIngredient[ingredients.size()])));
+            this.itemStackHandler.setStackInSlot(7, TeaUtils.getTeaFromIngredients(this.world.rand, ingredients.toArray(new TeaIngredient[ingredients.size()])));
             brewCount++;
 
             // Only decrease the water if 3 teas have been brewed.
@@ -105,10 +113,10 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
 
             // TODO: Don't steal buckets and bottles!!!
             // Oh. Don't steal every item either, damn.
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 7; i++) {
                 ItemStack stack = this.itemStackHandler.getStackInSlot(i);
                 stack.shrink(1);
-                this.itemStackHandler.setStackInSlot(i, stack.getCount() == 0 ? ItemStack.EMPTY : stack);
+                this.itemStackHandler.setStackInSlot(i, stack.isEmpty() ? ItemStack.EMPTY : stack);
             }
         }
     }
@@ -155,7 +163,7 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
     }
 
     private ItemStackHandler createHandler() {
-        return new ItemStackHandler(7) {
+        return new ItemStackHandler(8) {
 
             @Override
             protected void onContentsChanged(int slot) {
@@ -172,6 +180,8 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
                     case 2:
                         return true;
                     case 6:
+                        return stack.getItem() == ItemRegistry.TEA_CUP.get() && stack.getTag() == null;
+                    case 7:
                         return false;
                     default:
                         return TeaGarden.getInstance().getTeaManager().getMixers().contains(stack.getItem());
@@ -188,6 +198,8 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
                     return TeaPotTileEntity.this.brewingTime;
                 case 1:
                     return TeaPotTileEntity.this.waterAmount;
+                case 2:
+                    return TeaPotTileEntity.this.maxBrewingTime;
                 default:
                     return 0;
             }
@@ -201,12 +213,16 @@ public class TeaPotTileEntity extends TileEntity implements ITickableTileEntity 
                     break;
                 case 1:
                     TeaPotTileEntity.this.waterAmount = value;
+                    break;
+                case 2:
+                    TeaPotTileEntity.this.maxBrewingTime = value;
+                    break;
             }
         }
 
         @Override
         public int size() {
-            return 2;
+            return 3;
         }
     };
 

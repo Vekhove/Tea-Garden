@@ -6,7 +6,8 @@
   "description": "Astonishing! Matcha Tea heals all ailments, but it is very difficult to brew.",
   "names": [
     {
-      "name": "Matcha"
+      "name": "Matcha",
+      "position": 2
     }
   ],
   "effects": [

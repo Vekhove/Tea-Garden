@@ -6,7 +6,8 @@
   "description": "This tea slows down my reaction times, but has the benefit of being easily brewed.",
   "names": [
     {
-      "name": "Oolong"
+      "name": "Oolong",
+      "position": 2
     }
   ],
   "effects": [

@@ -18,7 +18,8 @@
   ],
   "modifiers": [
     {
-      "duration": 5
+      "type": "duration",
+      "value": 100
     }
   ]
 }

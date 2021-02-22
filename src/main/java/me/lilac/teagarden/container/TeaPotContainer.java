@@ -2,6 +2,7 @@ package me.lilac.teagarden.container;
 
 import me.lilac.teagarden.TeaGarden;
 import me.lilac.teagarden.block.BlockRegistry;
+import me.lilac.teagarden.item.ItemRegistry;
 import me.lilac.teagarden.tileentity.TeaPotTileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -30,7 +31,7 @@ public class TeaPotContainer extends Container {
         this.playerEntity = playerEntity;
         this.playerInventory = new InvWrapper(playerInventory);
         this.fields = this.tileEntity.fields;
-        assertIntArraySize(this.fields, 2);
+        assertIntArraySize(this.fields, 3);
         this.trackIntArray(this.fields);
 
         if (tileEntity != null) {
@@ -41,7 +42,8 @@ public class TeaPotContainer extends Container {
                 addSlot(new SlotItemHandler(handler, 3, 58, 49));
                 addSlot(new SlotItemHandler(handler, 4, 80, 57));
                 addSlot(new SlotItemHandler(handler, 5, 102, 49));
-                addSlot(new SlotItemHandler(handler, 6, 150, 35));
+                addSlot(new SlotItemHandler(handler, 6, 150, 8));
+                addSlot(new SlotItemHandler(handler, 7, 150, 35));
             });
 
             addPlayerSlots(9, 8, 84, 3, 9); // Inventory
@@ -76,18 +78,20 @@ public class TeaPotContainer extends Container {
             itemStack = slotItem.copy();
 
             // Result
-            if (index == 6) {
+            if (index == 7) {
                 if (!this.mergeItemStack(slotItem, 7, 39, true)) return ItemStack.EMPTY;
                 slot.onSlotChange(slotItem, itemStack);
-            } else if (index > 6) {
+            } else if (index > 7) {
                 if (TeaGarden.getInstance().getTeaManager().getBaseIngredients().contains(slotItem.getItem())) {
                     if (!this.mergeItemStack(slotItem, 0, 1, true)) return ItemStack.EMPTY;
                 } else if (TeaGarden.getInstance().getTeaManager().getMixers().contains(slotItem.getItem())) {
                     if (!this.mergeItemStack(slotItem, 3, 6, false)) return ItemStack.EMPTY;
+                } else if (slotItem.getItem() == ItemRegistry.TEA_CUP.get()) {
+                    if (!this.mergeItemStack(slotItem, 6, 7, false)) return ItemStack.EMPTY;
                 } else {
                     if (!this.mergeItemStack(slotItem, 1, 3, false)) return ItemStack.EMPTY;
                 }
-            } else if (!this.mergeItemStack(slotItem, 7, 39, false)) return ItemStack.EMPTY;
+            } else if (!this.mergeItemStack(slotItem, 8, 39, false)) return ItemStack.EMPTY;
 
             if (slotItem.isEmpty()) slot.putStack(ItemStack.EMPTY);
             else slot.onSlotChanged();
@@ -101,7 +105,7 @@ public class TeaPotContainer extends Container {
     }
 
     public int getProgress() {
-        int max = 1600;
+        int max = this.fields.get(2);
         int current = max - this.fields.get(0);
         return max != 0 && current != 0 && current < max ? current * 24 / max : 0;
     }

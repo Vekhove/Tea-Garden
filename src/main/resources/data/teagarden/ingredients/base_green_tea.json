@@ -6,7 +6,8 @@
   "description": "It seems green tea is beneficial to my health, but it doesn't brew easily.",
   "names": [
     {
-      "name": "Green"
+      "name": "Green",
+      "position": 2
     }
   ],
   "effects": [

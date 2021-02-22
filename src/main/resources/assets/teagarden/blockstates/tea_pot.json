@@ -1,6 +1,18 @@
 {
   "variants": {
-    "": {
+    "facing=east": {
+      "model": "teagarden:block/tea_pot",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "teagarden:block/tea_pot",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "teagarden:block/tea_pot",
+      "y": 270
+    },
+    "facing=west": {
       "model": "teagarden:block/tea_pot"
     }
   }

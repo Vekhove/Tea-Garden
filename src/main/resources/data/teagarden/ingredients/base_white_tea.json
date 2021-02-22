@@ -6,7 +6,8 @@
   "description": "Surprisingly, this tea seems to remove the effects of all other teas.",
   "names": [
     {
-      "name": "White"
+      "name": "White",
+      "position": 2
     }
   ],
   "effects": [

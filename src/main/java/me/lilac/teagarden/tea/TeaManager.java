@@ -5,23 +5,30 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import me.lilac.teagarden.TeaGarden;
+import me.lilac.teagarden.tea.data.IngredientModifier;
 import me.lilac.teagarden.tea.data.IngredientType;
+import me.lilac.teagarden.tea.data.ModifierType;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Effect;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.profiler.IProfiler;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraftforge.registries.ForgeRegistries;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class TeaManager extends JsonReloadListener {
 
+    private Random random;
     private List<TeaIngredient> teaIngredients;
 
     public TeaManager() {
@@ -119,7 +126,6 @@ public class TeaManager extends JsonReloadListener {
         builder.withType(type);
 
         // Brewability
-        // TODO: Total Brewability so datapack items can have brewability
         builder.withBrewability(ingredient.has("brewability") ? ingredient.get("brewability").getAsInt() : 0);
 
         // Hunger
@@ -148,9 +154,12 @@ public class TeaManager extends JsonReloadListener {
                 } else {
                     switch (type) {
                         case BASE:
-                            position = 2;
+                            position = 3;
                             break;
                         case INGREDIENT:
+                            position = 2;
+                            break;
+                        case MIXER:
                             position = 1;
                             break;
                     }
@@ -161,9 +170,39 @@ public class TeaManager extends JsonReloadListener {
         }
 
         // Effects
+        if (ingredient.has("effects")) {
+            JsonArray effects = ingredient.getAsJsonArray("effects");
+            for (JsonElement effect : effects) {
+                JsonObject effectObj = effect.getAsJsonObject();
 
+                String id = effectObj.get("id").getAsString();
+                int duration = effectObj.has("duration") ? effectObj.get("duration").getAsInt() : 500;
+                int amplifier = effectObj.has("amplifier") ? effectObj.get("amplifier").getAsInt() : 0;
+
+                EffectInstance effectInstance = new EffectInstance(Registry.EFFECTS.getOrDefault(new ResourceLocation(id)), duration, amplifier);
+                builder.addEffect(effectInstance);
+            }
+        }
 
         // Modifiers
+        if (ingredient.has("modifiers")) {
+            JsonArray modifiers = ingredient.getAsJsonArray("modifiers");
+            for (JsonElement modifier : modifiers) {
+                JsonObject modifierObj = modifier.getAsJsonObject();
+
+                ModifierType modifierType = ModifierType.valueOf(modifierObj.get("type").getAsString().toUpperCase());
+                int value = modifierObj.has("value") ? modifierObj.get("value").getAsInt() : 0;
+                int chance = modifierObj.has("chance") ? modifierObj.get("chance").getAsInt() : 100;
+                int min = modifierObj.has("min") ? modifierObj.get("min").getAsInt() : 0;
+                int max = modifierObj.has("max") ? modifierObj.get("max").getAsInt() : 0;
+
+                IngredientModifier ingredientModifier = new IngredientModifier(modifierType, value);
+                ingredientModifier.setValueChance(chance);
+                ingredientModifier.setMin(min);
+                ingredientModifier.setMin(max);
+                builder.addModifier(ingredientModifier);
+            }
+        }
 
         TeaIngredient teaIngredient = builder.build();
         this.teaIngredients.add(teaIngredient);
