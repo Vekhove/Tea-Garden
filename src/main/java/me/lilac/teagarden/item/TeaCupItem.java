@@ -83,9 +83,9 @@ public class TeaCupItem extends Item {
                             .append(new StringTextComponent(" "))
                             .append(new TranslationTextComponent("potion.potency." + effect.getAmplifier()).mergeStyle(TextFormatting.WHITE))
                             .append(new StringTextComponent(effect.getAmplifier() == 0 ? "" : " "))
-                            .append(new StringTextComponent("[").mergeStyle(TextFormatting.DARK_PURPLE))
-                            .append(new StringTextComponent("" + EffectUtils.getPotionDurationString(effect.getEffectInstance(), 1.0F)).mergeStyle(TextFormatting.LIGHT_PURPLE))
-                            .append(new StringTextComponent("]").mergeStyle(TextFormatting.DARK_PURPLE))
+                            .append(new StringTextComponent(effect.getPotion().isInstant() ? "" :"[").mergeStyle(TextFormatting.DARK_PURPLE))
+                            .append(new StringTextComponent(effect.getPotion().isInstant() ? "" : "" + EffectUtils.getPotionDurationString(effect.getEffectInstance(), 1.0F)).mergeStyle(TextFormatting.LIGHT_PURPLE))
+                            .append(new StringTextComponent(effect.getPotion().isInstant() ? "" :"]").mergeStyle(TextFormatting.DARK_PURPLE))
             );
         }
 

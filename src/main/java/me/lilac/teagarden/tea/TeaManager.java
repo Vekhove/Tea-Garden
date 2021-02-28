@@ -10,7 +10,6 @@ import me.lilac.teagarden.tea.data.IngredientType;
 import me.lilac.teagarden.tea.data.ModifierType;
 import net.minecraft.client.resources.JsonReloadListener;
 import net.minecraft.item.Item;
-import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.profiler.IProfiler;
 import net.minecraft.resources.IResourceManager;
@@ -24,16 +23,16 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class TeaManager extends JsonReloadListener {
 
-    private Random random;
     private List<TeaIngredient> teaIngredients;
+    private List<String> blockedIngredientNames;
 
     public TeaManager() {
         super(new Gson(), "ingredients");
         this.teaIngredients = new ArrayList<>();
+        this.blockedIngredientNames = new ArrayList<>();
     }
 
     public List<Item> getBaseIngredients() {
@@ -166,6 +165,7 @@ public class TeaManager extends JsonReloadListener {
                 }
 
                 builder.addName(nameStr, position);
+                if (nameObj.has("blocked") && nameObj.get("blocked").getAsBoolean()) blockedIngredientNames.add(nameStr);
             }
         }
 
@@ -176,7 +176,7 @@ public class TeaManager extends JsonReloadListener {
                 JsonObject effectObj = effect.getAsJsonObject();
 
                 String id = effectObj.get("id").getAsString();
-                int duration = effectObj.has("duration") ? effectObj.get("duration").getAsInt() : 500;
+                int duration = effectObj.has("duration") ? effectObj.get("duration").getAsInt() : 100;
                 int amplifier = effectObj.has("amplifier") ? effectObj.get("amplifier").getAsInt() : 0;
 
                 EffectInstance effectInstance = new EffectInstance(Registry.EFFECTS.getOrDefault(new ResourceLocation(id)), duration, amplifier);
@@ -210,5 +210,9 @@ public class TeaManager extends JsonReloadListener {
 
     public List<TeaIngredient> getTeaIngredients() {
         return teaIngredients;
+    }
+
+    public List<String> getBlockedIngredientNames() {
+        return blockedIngredientNames;
     }
 }

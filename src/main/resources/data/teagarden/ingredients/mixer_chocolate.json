@@ -1,7 +1,8 @@
 {
   "id": ["#forge:items/cocoa_beans", "#forge:items/chocolate"],
   "type": "mixer",
-  "color": "#FFFFFF",
+  "color": "#976848",
+  "description": "Damn this is good, strong too. Doesn't seem to last too long, though.",
   "names": [
     {
       "name": "Chocolatey"
@@ -14,7 +15,7 @@
     },
     {
       "type": "duration",
-      "value": -10
+      "value": -200
     }
   ]
 }

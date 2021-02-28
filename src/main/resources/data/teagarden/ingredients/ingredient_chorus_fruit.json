@@ -1,14 +1,13 @@
 {
   "id": ["minecraft:chorus_fruit"],
   "type": "ingredient",
-  "hunger": 1,
-  "saturation": 1,
+  "hunger": 2,
+  "saturation": 1.2,
   "color": "#CCCCCC",
   "description": "What a strange fruit... it teleports me all over the place!",
   "names": [
     {
-      "name": "Strange",
-      "position": 1
+      "name": "Strange"
     }
   ],
   "effects": [

@@ -1,9 +1,9 @@
 {
   "id": ["#forge:items/crops/carrot"],
   "type": "ingredient",
-  "hunger": 1,
-  "saturation": 1,
-  "color": "#CCCCCC",
+  "hunger": 1.5,
+  "saturation": 1.8,
+  "color": "#FFA73F",
   "description": "Just as the stories foretold, carrots improve my vision at night!",
   "names": [
     {

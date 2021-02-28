@@ -1,0 +1,16 @@
+{
+  "id": ["minecraft:experience_bottle"],
+  "type": "ingredient",
+  "color": "#CCCCCC",
+  "description": "XP, in my tea? Why didn't I think of that earlier?! More XP for me now!",
+  "names": [
+    {
+      "name": "XP"
+    }
+  ],
+  "effects": [
+    {
+      "id": "teagarden_exp"
+    }
+  ]
+}

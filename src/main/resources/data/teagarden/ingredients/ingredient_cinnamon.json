@@ -1,8 +1,6 @@
 {
   "id": ["#forge:items/cinnamon"],
   "type": "ingredient",
-  "hunger": 1,
-  "saturation": 1,
   "color": "#CCCCCC",
   "description": "Delicious! Cinnamon allows me to grab more loot!",
   "names": [

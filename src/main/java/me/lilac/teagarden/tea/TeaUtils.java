@@ -66,7 +66,10 @@ public class TeaUtils {
                     if (adverb == null) adverb = name;
                     break;
                 case 1:
-                    if (adjectives.size() != 2) adjectives.add(name);
+                    if (adjectives.size() != 2) {
+                        if (!adjectives.isEmpty() && TeaGarden.getInstance().getTeaManager().getBlockedIngredientNames().contains(name)) break;
+                        adjectives.add(name);
+                    }
                     break;
                 case 2:
                     if (verbs.size() != 3) verbs.add(name);
@@ -132,7 +135,9 @@ public class TeaUtils {
             }
 
             for (IngredientModifier modifier : ingredient.getModifiers()) {
-                int value = modifier.getValue() != 0 ? modifier.getValue() : random.nextInt(modifier.getMax() - modifier.getMin()) + modifier.getMin();
+                boolean negative = modifier.getMax() > 0;
+                int value = modifier.getValue() != 0 ? modifier.getValue() : random.nextInt(Math.abs((modifier.getMax()) - Math.abs(modifier.getMin())) + 1) + modifier.getMin();
+                if (negative) value = value * -1;
 
                 int chance = modifier.getValueChance();
 
